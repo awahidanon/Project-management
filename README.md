@@ -2,7 +2,7 @@ The Project Management System is a robust Django API designed to efficiently ove
 This application is equipped with advanced authentication mechanisms, including JSON Web Token (JWT) and Django's built-in authentication system (DjSor), ensuring secure and streamlined project management processes
 
 clone the project
-``` git clone https://github.com/divanov11/StudyBud.git ```
+``` git clone https://github.com/awahidanon/Project-management.git```
 
 Create a virtual environment 
 ``` python3 -m venv env ``` 
