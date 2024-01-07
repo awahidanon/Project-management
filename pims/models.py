@@ -21,6 +21,7 @@ class ProjectInfo(models.Model):
     startDate = models.DateTimeField(verbose_name = 'Start Date')
     endDate = models.DateTimeField( verbose_name =" End Date")
     update= models.DateField(auto_now=True)
+    created = models.DateField(auto_now_add = True)
     def __str__(self):
         return self.project_Name
     
