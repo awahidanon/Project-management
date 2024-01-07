@@ -1,5 +1,5 @@
-The Project Management System is a robust Django API designed to efficiently oversee construction projects. 
-This application is equipped with advanced authentication mechanisms, including JSON Web Token (JWT) and Django's built-in authentication system (DjSor), ensuring secure and streamlined project management processes
+Project Management System Django Rest Framework API designed oversee construction projects. 
+This application has authentication mechanisms, including JSON Web Token (JWT) and Django's built-in authentication system (DjSor).
 
 clone the project
 ``` git clone https://github.com/awahidanon/Project-management.git```
