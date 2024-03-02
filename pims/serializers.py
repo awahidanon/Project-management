@@ -1,41 +1,49 @@
 from rest_framework import serializers
+
 from .models import Catagory, ProjectInfo
 
 
 class CatagorySerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = Catagory
-        fields = [ 'name']
+        fields = ["name"]
+
 
 class ProjectInfoSerializer(serializers.HyperlinkedModelSerializer):
     catagory = CatagorySerializer()
 
     class Meta:
         model = ProjectInfo
-        fields = ['project_Name','catagory', 'zone', 'woreda','price','Rebatee','Price_After_Rebate','vat','afterVat','consultant','startDate', 'endDate', 'update']
+        fields = [
+            "project_name",
+            "catagory",
+            "zone",
+            "woreda",
+            "price",
+            "rebate",
+            "price_after_rebate",
+            "vat",
+            "after_vat",
+            "consultant",
+            "start_date",
+            "end_date",
+            "update",
+        ]
 
-    Rebatee = serializers.SerializerMethodField(method_name='Rebate')
-    Price_After_Rebate = serializers.SerializerMethodField(method_name='After_Rebate')
-    vat = serializers.SerializerMethodField(method_name='vatCalculation')
-    afterVat = serializers.SerializerMethodField(method_name='AftervatCalculation')
-    
+    rebate = serializers.SerializerMethodField(method_name="Rebate")
+    price_after_rebate = serializers.SerializerMethodField(method_name="AfterRebate")
+    vat = serializers.SerializerMethodField(method_name="VatCalculation")
+    after_vat = serializers.SerializerMethodField(method_name="AfterVatCalculation")
 
-    def AftervatCalculation(self, ProjectInfo):
-        
-        return ProjectInfo.price - ProjectInfo.price * 15/100
-           
-    def vatCalculation(self, ProjectInfo):
-        return ProjectInfo.price * 15/100
-    
+    def AfterVatCalculation(self, ProjectInfo):
+        return ProjectInfo.price - ProjectInfo.price * 15 / 100
+
+    def VatCalculation(self, ProjectInfo):
+        return ProjectInfo.price * 15 / 100
+
     def Rebate(self, ProjectInfo):
-        return ProjectInfo.price * ProjectInfo.Rebate/100
-   
-    
-    def After_Rebate (self, ProjectInfo):
-         return ProjectInfo.price - ProjectInfo.price * ProjectInfo.Rebate
-    
-   
-    
+        return ProjectInfo.price * ProjectInfo.rebate / 100
 
-  
+    def AfterRebate(self, ProjectInfo):
+        return ProjectInfo.price - ProjectInfo.price * ProjectInfo.rebate
